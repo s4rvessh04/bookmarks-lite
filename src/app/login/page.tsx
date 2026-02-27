@@ -23,7 +23,6 @@ export default async function Login({
         const origin = headers().get("origin")
             || process.env.NEXT_PUBLIC_SITE_URL
             || (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:3000");
-        console.log(origin, process.env.NEXT_PUBLIC_VERCEL_URL, process.env.NEXT_PUBLIC_SITE_URL, process.env);
         const supabase = createClient();
 
         const { data, error } = await supabase.auth.signInWithOAuth({
