@@ -20,7 +20,9 @@ export default async function Login({
     const signIn = async () => {
         "use server";
 
-        const origin = headers().get("origin") || "http://localhost:3000";
+        const origin = headers().get("origin")
+            || process.env.NEXT_PUBLIC_SITE_URL
+            || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
         const supabase = createClient();
 
         const { data, error } = await supabase.auth.signInWithOAuth({
