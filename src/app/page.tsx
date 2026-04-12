@@ -27,7 +27,6 @@ export default async function Home() {
                 </h1>
                 <div className="flex flex-col items-center w-full">
                     <AddBookmark />
-                    <div className="w-full mt-8 border-t border-gray-200 dark:border-gray-800" />
                     <BookmarkList initialBookmarks={bookmarks || []} />
                 </div>
             </div>
